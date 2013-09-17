@@ -45,6 +45,8 @@ def decode(frequencies, samples):
     for bit in finallist:
         if mode(bit)[0][0] > 420 and mode(bit)[0][0] < 460:
             bits.append(1)
+        else:
+            bits.append(0)
     print bits
     
 if __name__ == '__main__':
@@ -52,6 +54,6 @@ if __name__ == '__main__':
     samples = readAudio(1)
     frequencies = postProcess(samples)
     print "Time: " , time.time() - start
-    #decode(frequencies, 4)
-    print frequencies
+    decode(frequencies, 4)
+    #print frequencies
     

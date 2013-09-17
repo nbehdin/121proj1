@@ -3,8 +3,8 @@ import numpy as np
 
 RATE = 44100;
 
-def writeOneBit(bit, freq, dur, toneArray):
-    toneArray.extend(array.array('f', (math.sin(bit*i*2*math.pi/(RATE/freq)+np.random.normal(0,.1,1 )) for i in range(int(RATE*dur)))))
+def writeOneBit(bit, freq, dur, toneArray, noiseStrength):
+    toneArray.extend(array.array('f', (math.sin(bit*i*2*math.pi/(RATE/freq)+np.random.normal(0,noiseStrength,1 )) for i in range(int(RATE*dur)))))
     
 def playBitStream(bits, freq, dur):
     p = pyaudio.PyAudio()
